@@ -1,0 +1,146 @@
+@use 'abstracts' as *;
+
+$trans-time: 700ms;
+.c-card{
+    @include get-prop-color('background','neutral','card-bg');
+    border-radius: .9rem;
+    box-shadow: 0 1.3333rem 0.53333rem 1.1333rem map-get($colors,neutral,sha-1),0 0.6666rem 0.53333rem 3.3333rem map-get($colors,neutral,sha-2);
+
+    &-img{
+        position: relative;
+            
+                &::before{
+                    content: "";
+                    @include get-prop-color('background',neutral,eye-hov);
+                    background-image: url('../../assets/icon-view.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    border-radius: .5rem;
+                    opacity: 0;
+                    transition: opacity $trans-time ease-in-out;
+            }
+               &:hover::before{
+                   opacity: 1;
+               }
+    }
+
+    &-head{
+        @include get-prop-color('color',neutral,equili-cl);
+        width: max-content;
+        transition: color $trans-time ease-in-out;
+        font-size: 1.2rem;
+        
+        &:hover{
+            @include get-prop-color('color',primary,hov);
+            cursor: pointer;
+        }
+        &__equi{
+            text-transform: capitalize;
+        }
+        @include respond-to('small'){
+            font-size: 1.5rem;
+        }
+    }
+    &-txt{
+        @include get-prop-color('color',primary,txt);
+        font-size: .97rem;
+        font-weight: 400;
+        line-height: 1.5;
+        @include respond-to('small'){
+            font-size: 1.05rem;
+        }
+        @include respond-to('large'){
+            font-size: 1.2rem;
+        }
+    }
+
+    &-eth{
+        font-weight: 600;
+        font-size: .9rem;
+        &__val{
+            position: relative;
+            margin-left: 1.3rem;
+            display: flex;
+            align-items: center;
+            @include get-prop-color('color',primary,eth-cl);
+            &::before{
+                content: url('../../assets/icon-ethereum.svg');
+                position: absolute;
+                display: flex;
+                left: -1.3rem;
+            }
+            .eth{
+                margin-left: .2rem;
+            }
+        }
+        &__dleft{
+            position: relative;
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            @include get-prop-color('color',primary,txt);
+            &::before{
+                content: url('../../assets/icon-clock.svg');
+                position: absolute;
+                left: -1.6rem;
+                display: flex;
+            }
+        }
+        @include respond-to('small'){
+            font-size: 1.1rem;
+        }
+    }
+    &-foot{
+        border-top: 1px solid map-get($colors,neutral,line);
+        padding-top: 1rem;
+        font-weight: 400;
+        
+        &__txt{
+            @include get-prop-color('color',primary,txt);
+            font-size: .86rem;
+            @include respond-to('small'){
+                font-size: 1rem;
+            }
+            @include respond-to('large'){
+                font-size: 1.1rem;
+            }
+        }
+        &__name{
+            @include get-prop-color('color',neutral,name-hov);
+            transition: color $trans-time ease-in-out;
+            &:hover{
+                @include get-prop-color('color',primary,hov);
+                cursor: pointer;
+            }
+        }
+        
+        
+    }   
+}
+
+footer{
+    font-size: .7rem;
+    color: white;
+    text-align: center;
+    transform: translateY(5rem);
+    padding: 1rem 3rem;
+    
+    a{
+        text-decoration: none;
+        &:link,&:visited{
+            @include get-prop-color(color,primary,txt);
+            font-weight: 300;
+        }
+        &:hover{
+            @include get-prop-color(color,primary,hov);
+        }
+    }
+    // a:link,a:visited{
+    //     color:white;
+    // }
+}
+
+

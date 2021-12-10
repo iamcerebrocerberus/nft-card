@@ -1,0 +1,43 @@
+@use 'abstracts' as *;
+
+.o-card{
+    width: pxCon(230,rem);
+    padding: .9rem;
+    @include respond-to('small'){
+        width: pxCon(280,rem);
+        padding: 1.6rem;
+    }
+    @include respond-to('large'){
+        width: pxCon(298,rem);
+    }
+
+    
+    &-head{
+        margin-top: 1.5rem;
+    }
+
+    &-txt{
+        margin-top: 1rem;
+    }
+
+    &-eth{
+        margin: 1.5rem 0;
+        display: flex;
+        &__dleft{
+            margin-left: auto;
+        }
+    }
+    &-foot{
+        display: flex;
+        flex-direction: row;
+        &__txt{
+            align-self: center;
+            margin-left: 1rem;
+        }
+        img[src*=avatar]{
+            width: 2rem;
+            outline: .1rem solid white;
+            border-radius: 50%;  
+        }
+    }
+}

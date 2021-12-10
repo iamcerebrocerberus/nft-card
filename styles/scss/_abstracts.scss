@@ -1,0 +1,77 @@
+@use 'sass:map';
+@use 'sass:math';
+
+
+$breakpoints:(
+    'small': '25em', //375px
+    'large': '40em', //600px
+    's-height': '46.46666em' //697px
+);
+
+//colors
+$colors:(
+    'primary':(
+        'txt':hsl(215, 51%, 70%),
+        'eth-cl':hsl(178, 100%, 50%),
+        'hov':hsl(178, 100%, 50%) 
+    ),
+    'neutral':(
+        'main-bg':hsl(217, 54%, 11%),
+        'card-bg':hsl(216, 50%, 16%),
+        'sha-1':hsl(216, 51%, 10%),
+        'sha-2':hsla(216, 51%, 10%,0.3),
+        'line':hsl(215, 32%, 27%),
+        'name-cl':hsl(0, 0%, 100%),
+        'equili-cl':hsl(0, 0%, 100%),
+        'name-hov':hsl(0, 0%, 100%),
+        'eye-hov':hsla(178, 100%, 50%,.5) 
+    )
+);
+
+
+//||====== MIXINS ========||
+//media query
+@mixin respond-to($val){
+    $val: map.get($breakpoints,$val);
+    @media screen and (min-width: $val){
+        @content;
+    }
+}
+
+@mixin respond-to-height($val){
+    $val: map.get($breakpoints,$val);
+    @media screen and (max-height: $val){
+        @content;
+    }
+}
+
+
+//color getter
+@mixin get-prop-color($prop,$key,$val){
+    $col: map.get($colors,$key,$val);
+    #{$prop}: $col;
+}
+
+@mixin flex-cen-all($dir){
+    display: flex;
+    flex-direction: #{$dir};
+    // display: -ms-flexbox;
+    // display: -web
+    justify-content: center;
+    align-items: center;
+}
+
+//||==== FUNCTIONS ====||
+//rem and em convertor
+@function pxCon($value,$unit){
+    $rem : "rem";
+    $em : "em";
+    $value: math.div($value,15); // 1em or rem == 15px
+    @if $value and ($unit == $rem){
+        @return #{$value}rem;
+    }@else if $value and ($unit == $em){
+        @return #{$value}em;
+    }@else {
+        @error "first arg must be only value(px) and second arg must be unit ['rem' or 'em']";
+    }
+}

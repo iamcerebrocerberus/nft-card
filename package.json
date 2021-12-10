@@ -1,0 +1,12 @@
+{
+  "name": "solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "sass --watch styles/scss/main.scss styles/css/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

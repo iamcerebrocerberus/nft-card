@@ -1,0 +1,45 @@
+@use 'abstracts' as *;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+*{
+    font-family: 'outfit',sans-serif;
+    &::before,&::after{
+        box-sizing: border-box;
+    }
+}
+html,body,main,figure,img,h1,p,span,footer{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+html{
+    height: 100%;
+}
+body{
+    min-height: 100%;
+}
+body{
+    @include flex-cen-all('column');
+    @include get-prop-color('background','neutral','main-bg');
+    @include respond-to-height('s-height'){
+        padding-top: 2rem;
+    }
+}
+
+
+img[src*=equil]{
+    display: block;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+/*animations and transitions reset*/
+@media screen and (prefers-reduced-motion){
+    *{
+        &::before,&::after{
+            transition-duration: -1ms !important;
+        }
+    }
+}
+

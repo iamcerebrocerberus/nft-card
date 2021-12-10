@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+* {
+  font-family: "outfit", sans-serif;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, main, figure, img, h1, p, span, footer {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0d192b;
+}
+@media screen and (max-height: 46.46666em) {
+  body {
+    padding-top: 2rem;
+  }
+}
+
+img[src*=equil] {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+/*animations and transitions reset*/
+@media screen and (prefers-reduced-motion) {
+  *::before, *::after {
+    transition-duration: -1ms !important;
+  }
+}
+.o-card {
+  width: 15.3333333333rem;
+  padding: 0.9rem;
+}
+@media screen and (min-width: 25em) {
+  .o-card {
+    width: 18.6666666667rem;
+    padding: 1.6rem;
+  }
+}
+@media screen and (min-width: 40em) {
+  .o-card {
+    width: 19.8666666667rem;
+  }
+}
+.o-card-head {
+  margin-top: 1.5rem;
+}
+.o-card-txt {
+  margin-top: 1rem;
+}
+.o-card-eth {
+  margin: 1.5rem 0;
+  display: flex;
+}
+.o-card-eth__dleft {
+  margin-left: auto;
+}
+.o-card-foot {
+  display: flex;
+  flex-direction: row;
+}
+.o-card-foot__txt {
+  align-self: center;
+  margin-left: 1rem;
+}
+.o-card-foot img[src*=avatar] {
+  width: 2rem;
+  outline: 0.1rem solid white;
+  border-radius: 50%;
+}
+
+.c-card {
+  background: #14253d;
+  border-radius: 0.9rem;
+  box-shadow: 0 1.3333rem 0.53333rem 1.1333rem #0c1727, 0 0.6666rem 0.53333rem 3.3333rem rgba(12, 23, 39, 0.3);
+}
+.c-card-img {
+  position: relative;
+}
+.c-card-img::before {
+  content: "";
+  background: rgba(0, 255, 247, 0.5);
+  background-image: url("../../assets/icon-view.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 700ms ease-in-out;
+}
+.c-card-img:hover::before {
+  opacity: 1;
+}
+.c-card-head {
+  color: white;
+  width: max-content;
+  transition: color 700ms ease-in-out;
+  font-size: 1.2rem;
+}
+.c-card-head:hover {
+  color: #00fff7;
+  cursor: pointer;
+}
+.c-card-head__equi {
+  text-transform: capitalize;
+}
+@media screen and (min-width: 25em) {
+  .c-card-head {
+    font-size: 1.5rem;
+  }
+}
+.c-card-txt {
+  color: #8bacda;
+  font-size: 0.97rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+@media screen and (min-width: 25em) {
+  .c-card-txt {
+    font-size: 1.05rem;
+  }
+}
+@media screen and (min-width: 40em) {
+  .c-card-txt {
+    font-size: 1.2rem;
+  }
+}
+.c-card-eth {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.c-card-eth__val {
+  position: relative;
+  margin-left: 1.3rem;
+  display: flex;
+  align-items: center;
+  color: #00fff7;
+}
+.c-card-eth__val::before {
+  content: url("../../assets/icon-ethereum.svg");
+  position: absolute;
+  display: flex;
+  left: -1.3rem;
+}
+.c-card-eth__val .eth {
+  margin-left: 0.2rem;
+}
+.c-card-eth__dleft {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  color: #8bacda;
+}
+.c-card-eth__dleft::before {
+  content: url("../../assets/icon-clock.svg");
+  position: absolute;
+  left: -1.6rem;
+  display: flex;
+}
+@media screen and (min-width: 25em) {
+  .c-card-eth {
+    font-size: 1.1rem;
+  }
+}
+.c-card-foot {
+  border-top: 1px solid #2f415b;
+  padding-top: 1rem;
+  font-weight: 400;
+}
+.c-card-foot__txt {
+  color: #8bacda;
+  font-size: 0.86rem;
+}
+@media screen and (min-width: 25em) {
+  .c-card-foot__txt {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 40em) {
+  .c-card-foot__txt {
+    font-size: 1.1rem;
+  }
+}
+.c-card-foot__name {
+  color: white;
+  transition: color 700ms ease-in-out;
+}
+.c-card-foot__name:hover {
+  color: #00fff7;
+  cursor: pointer;
+}
+
+footer {
+  font-size: 0.7rem;
+  color: white;
+  text-align: center;
+  transform: translateY(5rem);
+  padding: 1rem 3rem;
+}
+footer a {
+  text-decoration: none;
+}
+footer a:link, footer a:visited {
+  color: #8bacda;
+  font-weight: 300;
+}
+footer a:hover {
+  color: #00fff7;
+}
+
+/*# sourceMappingURL=style.css.map */
